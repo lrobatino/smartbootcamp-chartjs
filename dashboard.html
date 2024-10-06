@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        canvas {
+            width: 600px;
+            height: 300px;
+            max-width: 600px;
+            max-height: 300px;
+            margin: 0 auto;
+        }
+        .graficos {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Minha Dashboard</h2>
+    <div class="graficos">
+        <canvas id="myChart"></canvas>
+        <canvas id="myChart2"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+                datasets: [{
+                    label: 'Temperatura',
+                    data: [30, 29, 28, 25, 22, 23],
+                    backgroundColor: '#fc03b1',
+                    borderColor: '#fc03b1',
+                },
+                {
+                    label: 'Umidade',
+                    data: [80, 82, 80, 85, 80, 83],
+                    backgroundColor: '#037ffc',
+                    borderColor: '#037ffc',
+                }]
+            }
+        });
+
+        const context2 = document.getElementById('myChart2').getContext('2d');
+
+        const myChart2 = new Chart(context2, {
+            type: 'bar',
+            data: {
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+                datasets: [{
+                    label: 'Temperatura Média',
+                    data: [22, 24, 27, 23, 20, 18],
+                    backgroundColor: '#fc03b1',
+                    borderColor: '#fc03b1',
+                },
+                {
+                    label: 'Umidade Média',
+                    data: [90, 89, 93, 87, 88, 82],
+                    backgroundColor: '#037ffc',
+                    borderColor: '#037ffc',
+                }]
+            }
+        });
+    </script>
+
+</body>
+</html>
